@@ -1,0 +1,19 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: remove repository index
+    yum:
+      update_cache: yes
+
+  - name: install httpd package
+    yum:
+      name: httpd
+      state: removed
+
+  - name: remove nginx package
+    yum:
+      name: nginx
+      state: removed
